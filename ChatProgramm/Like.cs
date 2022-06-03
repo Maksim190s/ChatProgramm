@@ -21,9 +21,10 @@ namespace ChatProgramm
             foreach (var like in likes)
             {
                 var (origMessage, likeAuthor) = like;
+                var (text, textAuthor) = origMessage;
                 if (likeAuthor == user)
                 {
-                    Console.WriteLine($"{origMessage.ShowMessage}");
+                    Console.WriteLine($"{textAuthor.Nickname}: {origMessage.GetText}");
                 }
             }
         }

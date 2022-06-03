@@ -40,11 +40,10 @@ Chat MainChat = new Chat(allMessages, users);
 
 
 //Requests 
-Chat.ShowAllMessages(allMessages);
+Messages.ShowAllMessages(allMessages);
 
 
 Messages.ShowMessagesByUser(allMessages, mey);
-
 
 
 message4.ShowMessage();

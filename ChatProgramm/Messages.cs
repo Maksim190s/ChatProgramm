@@ -31,6 +31,17 @@ namespace ChatProgramm
         { 
             Console.WriteLine($"{User.Nickname}: {File.ReadAllText(pathToText)}");
         }
+
+
+        public static void ShowAllMessages(Messages[] Messages)
+        {
+            foreach (var message in Messages)
+            {
+                var (pathToText, user) = message;
+                Console.WriteLine($"{user.Nickname}: {message.GetText(pathToText)}");
+                //Console.WriteLine($"{message.ShowMessage}");
+            }
+        }
     }
 }
 
