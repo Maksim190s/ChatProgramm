@@ -7,4 +7,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Infrastructure\" />
+    <None Remove="Domain\" />
+    <None Remove="DataBase\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Infrastructure\" />
+    <Folder Include="Domain\" />
+    <Folder Include="DataBase\" />
+  </ItemGroup>
 </Project>

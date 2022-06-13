@@ -1,15 +1,33 @@
 ﻿using System;
 namespace ChatProgramm
 {
-    public record Chat(Messages[] Message, User[] Users)
+    public record Chat(Message[] Messages, User[] Users)
     {
-        public static void ShowAllMessages(Messages[] Message)
+        public Message[] GetUserMessages(User user)
         {
-            foreach (var mes in Message)
+            var filteredMessages = new List<Message>();
+            foreach (var message in Messages)
             {
-                Console.WriteLine($"{mes.ShowMessage}");
+                if (message.Author == user)
+                {
+                    filteredMessages.Add(message);
+                }
             }
+            return filteredMessages.ToArray();
         }
+
+        
+        public Like[] GetAllLikes()
+        {
+            var allLikes = new List<Like>();
+            foreach (var m in Messages)
+            {
+                if (m.Likes != null) allLikes.Add(m.Likes);
+            }
+            return allLikes.ToArray();
+        }
+
+
     }
 
 }
