@@ -23,12 +23,6 @@ namespace ChatProgramm
             return users.ToArray();
         }
 
-
-        public User LoadUser2;
-
-
-        public User LoadUser2;
-
     }
    
 }
