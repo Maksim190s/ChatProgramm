@@ -16,7 +16,7 @@ namespace ChatProgramm
             return filteredMessages.ToArray();
         }
 
-        
+        //
         public Like[] GetAllLikes()
         {
             var allLikes = new List<Like>();
