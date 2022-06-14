@@ -12,7 +12,6 @@ namespace ChatProgramm.Infrastructure
 			}
 		}
 
-		//public static void Display
 	}
 
 	public static class ConsoleUser
