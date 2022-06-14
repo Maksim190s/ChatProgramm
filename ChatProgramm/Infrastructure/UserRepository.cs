@@ -26,6 +26,9 @@ namespace ChatProgramm
 
         public User LoadUser2;
 
+
+        public User LoadUser2;
+
     }
    
 }
