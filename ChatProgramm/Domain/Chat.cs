@@ -16,18 +16,9 @@ namespace ChatProgramm
             return filteredMessages.ToArray();
         }
 
-        //
-        public Like[] GetAllLikes()
-        {
-            var allLikes = new List<Like>();
-            foreach (var m in Messages)
-            {
-                if (m.Likes != null) allLikes.Add(m.Likes);
-            }
-            return allLikes.ToArray();
-        }
-
-
+        
+        
+        
     }
 
 }

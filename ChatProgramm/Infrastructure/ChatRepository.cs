@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+
 
 namespace ChatProgramm
 {
@@ -11,39 +11,60 @@ namespace ChatProgramm
 			var rawMessages = chatText.Split("</|> MESSAGE </|>");
 			var messages = new List<Message>();
 			foreach (var rawMessage in rawMessages)
-            {
-				var messageAttributes = rawMessage.Split("<+>");
+			{
+				string[] messageAttributes = rawMessage.Split("<+>");
 				var user = FindUserByNickname(users, messageAttributes[0]);
-				//var like = FindUserByNickname(users, messageAttributes[2]);
-				var message = new Message(messageAttributes[1], user, new Like[0]);
-				// В строке выше выдает "Index was outside the bounds of the array"
-				messages.Add(message);
+                var likes = DetectLikes(users, messageAttributes[2]);
+                var message = new Message(user, messageAttributes[1], likes);
+                messages.Add(message);
             }
 
 			// CHAT
 			var mainChat = new Chat(messages.ToArray(), users);
 			return mainChat;
 		}
-		
 
-
-
-
-		private User FindUserByNickname(User[] users, string nickname)
+      
+        private User FindUserByNickname(User[] users, string nickname)
         {
-			foreach (var user in users)
+			foreach(var u in users)
             {
-				if (user.Nickname == nickname) return user;
+				if (u.Nickname == nickname) return u; 
             }
-			return null;			
+			return null;
         }
 
-       
+		Like[] DetectLikes(User[] users, string likes)
+        {
+            var likesSep = likes.Split(',');
+            var whoLiked = new List<User>();
+            foreach (var l in likesSep)
+            {
+                var usersWhoLike = FindUserByNickname(users, l);
+                whoLiked.Add(usersWhoLike);
+            }
+            var likeAuthors = ConvertUserToLike(whoLiked.ToArray());
+            return likeAuthors;
+        }
 
+        private Like[] ConvertUserToLike(User[] users)
+        {
+            if (users != null)
+            {
+                var likeList = new List<Like>();
+                foreach (var u in users)
+                {
+                    var like = new Like(u);
+                    likeList.Add(like);
+                }
+                return likeList.ToArray();
+            }
+            return null;
 
-
-
-
+            
+	
+        }
     }
 }
+
 

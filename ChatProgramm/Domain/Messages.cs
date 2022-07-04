@@ -1,7 +1,7 @@
 ﻿using System;
 namespace ChatProgramm
 {
-    public record Message(string Text, User Author, Like Likes);
+    public record Message(User Author, string Text, Like[] Like);
 
     
 }
