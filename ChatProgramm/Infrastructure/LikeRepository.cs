@@ -7,22 +7,20 @@ namespace ChatProgramm
     {
         public static void AddLike(User[] users, Message[] messages)
         {
-            //Request of ni
+            
             var stringNickname = RequestOfAuthor();
             var author = FindUserByNickname(users, stringNickname);
             var like = ConvertUserToLike(author);
             var messagesUserView = GetMessagesUserUserView(messages);
             ShowMessageListWithIndexes(messages);
            
-            // index request
+            
             var index = Int32.Parse(RequestOfMessageIndex());
 
             var newMessageList = DetectMessageAddLikeAndReturnList(index, messages, like);
             var last = GetMessagesUserUserView(newMessageList);
 
             File.WriteAllText("/Users/menswear/Projects/ChatProgramm/ChatProgramm/DataBase/Chat.txt", String.Join("",last));
-
-
         }
 
       
@@ -38,7 +36,6 @@ namespace ChatProgramm
                     if (item.Author != null)
                     {
                         likes.Add(item.Author.Nickname);
-                        //Так как в 3 и 9 сообщении [0] {Author = }, программа дальше не идет.
                     }
                 }
                 var arrLikes = likes.ToArray();
@@ -56,17 +53,14 @@ namespace ChatProgramm
             for (int i = 0; i < messages.Length; i++)
             {
                 if (i == (index - 1))
-                {
-
-                    //Проблема со свойством "like" в Message: в сообщении, где изначально не было лайков, в свойстве  "like"
-                    //числится один элемент [0] со значением null.  
+                {  
                     if (messages[i].Like is null)
                     {
                         var newLikeList = new List<Like>();
                         newLikeList.Add(like);
                         var n = new Message(messages[i].Author, messages[i].Text, newLikeList.ToArray());
                         list.Add(n);
-                        //Хотел решить проблему с нулевым элементом в лайках создав новое сообщение с прежними свойствами Автора и Текста. И добавить навый список лайков
+                        
                     }
                     else
                     {

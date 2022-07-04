@@ -21,8 +21,10 @@ var likeRepository = new LikeRepository();
 
 var messagesOfFirstUser = chat.GetUserMessages(chat.Users[1]);
 var allMessages = chat.Messages;
-/*
+
 // infrastructure
+
+/*
 ConsoleChat.DisplayLongMessages(messagesOfFirstUser);
 
 ConsoleUser.DisplayEachUser(allUsers);
@@ -32,11 +34,8 @@ LikeRepository.AddLike(allUsers, allMessages);
 */
 
 
-// display chat - OK
-// add message to file - OK
-// find messages by user - OK
-// add like - almost OK
 
+// Console Menue
 
 var command = args[0];
 
