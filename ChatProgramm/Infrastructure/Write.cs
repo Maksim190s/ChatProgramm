@@ -1,16 +1,27 @@
 ﻿using System;
+using System.Text.Json;
+
 namespace ChatProgramm.Infrastructure
 {
-	public class Write
+	public static class Write
 	{
-		public static void Message(string path, string Nick, string Text, string Likes)
+		public static void Chat(string pathToFile, Chat chat )
         {
-			File.AppendAllText(path, $"</|> MESSAGE </|>\n{Nick}<+>{Text}<+>{Likes}\n");
+            var serializerOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true, WriteIndented = true };
+            var serializedChat = JsonSerializer.Serialize(chat, serializerOptions);
+            File.WriteAllText("DataBase/Users.json", serializedChat);
         }
 
-		
+        public static void Users(string pathToFile, User[] users)
+        {
+            var serializerOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true, WriteIndented = true };
+            var serializedUsers = JsonSerializer.Serialize(users, serializerOptions);
+            File.WriteAllText(pathToFile, serializedUsers);
+        }
 
-		
-	}
+
+
+
+    }
 }
 

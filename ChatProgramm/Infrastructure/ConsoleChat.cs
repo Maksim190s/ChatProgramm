@@ -12,16 +12,6 @@ namespace ChatProgramm.Infrastructure
 			}
 		}
 
-        public static void AddMessage()
-        {
-            Console.WriteLine("User nickname: ");
-            var userNick = Console.ReadLine();
-            Console.WriteLine("Message: ");
-            var userMessage = Console.ReadLine();
-            File.AppendAllText("/Users/menswear/Projects/ChatProgramm/ChatProgramm/DataBase/Chat.txt", $"</|> MESSAGE </|>{userNick}<+>{userMessage}<+>");
-            Console.WriteLine("Message added successfully!");
-        }
-
         public static void DisplayChat(Chat chat)
         {
             var messages = chat.Messages;
@@ -40,23 +30,5 @@ namespace ChatProgramm.Infrastructure
         }
 
     }
-
-
-
-	public static class ConsoleUser
-    {
-		public static void DisplayEachUser(User[] users)
-        {
-			foreach (var user in users)
-            {
-                Console.WriteLine($"Full Name:{user.FullName}, Nickname:{user.Nickname}\n");
-            }
-        }
-    }
-
-
-    
-
-
 }
 

@@ -10,7 +10,6 @@ namespace ChatProgramm
         {
             var userText = File.ReadAllText(path);
             var users = JsonSerializer.Deserialize<List<User>>(userText, new JsonSerializerOptions { PropertyNameCaseInsensitive = true, WriteIndented = true });
-            var mmmmmmm = users.ToArray().Count();
             return users.ToArray();
         }
     }
