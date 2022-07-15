@@ -16,7 +16,17 @@ namespace ChatProgramm
             return filteredMessages.ToArray();
         }
 
-        
+        public void AddNewMessage(Message message)
+        {
+            var newList = new List<Message>();
+            foreach (var m in Messages)
+            {
+                newList.Add(m);
+            }
+            newList.Add(message);
+        }
+
+
         
         
     }
