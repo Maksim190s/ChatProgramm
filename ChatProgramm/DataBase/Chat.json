@@ -1,0 +1,49 @@
+﻿{
+  "Messages": [
+    {
+      "Author": {
+        "FullName": "James O",
+        "DateOfBirth": "1987-2-1T12:13:13.511Z",
+        "Nickname": "James"
+      },
+      "Text": "Hi, it's me, James!",
+      "Like": [
+        {
+          "FullName": "Kim M",
+          "DateOfBirth": "1986-2-1T12:13:13",
+          "Nickname": "Kim"
+        },
+        {
+          "FullName": "Kate N",
+          "DateOfBirth": "1986-2-1T12:13:13",
+          "Nickname": "Kate"
+        }
+      ]
+    },
+    {
+      "Author": {
+        "FullName": "Kim M",
+        "DateOfBirth": "1986-2-1T12:13:13",
+        "Nickname": "Kim"
+      },
+      "Text": "Hi, James!",
+      "Like": []
+    },
+    {
+      "Author": {
+        "FullName": "Kate N",
+        "DateOfBirth": "1986-2-1T12:13:13",
+        "Nickname": "Kate"
+      },
+      "Text": "Hey",
+      "Like": [
+        {
+          "FullName": "James O",
+          "DateOfBirth": "1987-2-1T12:13:13",
+          "Nickname": "James"
+        }
+      ]
+    }
+  ],
+  "Users": [] 
+}
