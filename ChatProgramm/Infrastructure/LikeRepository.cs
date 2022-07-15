@@ -46,7 +46,7 @@ namespace ChatProgramm
             var list = stringArray.ToArray();
             return list;
         }
-
+        
         private static Message[] DetectMessageAddLikeAndReturnList(int index, Message[] messages, Like like)
         {
             var list = new List<Message>();

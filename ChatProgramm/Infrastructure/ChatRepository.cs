@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Text.Json;
 
 namespace ChatProgramm
 {
@@ -8,20 +8,11 @@ namespace ChatProgramm
 		public Chat LoadChat (string path, User[] users)
 		{
 			var chatText = File.ReadAllText(path);
-			var rawMessages = chatText.Split("</|> MESSAGE </|>");
-			var messages = new List<Message>();
-			foreach (var rawMessage in rawMessages)
-			{
-				string[] messageAttributes = rawMessage.Split("<+>");
-				var user = FindUserByNickname(users, messageAttributes[0]);
-                var likes = DetectLikes(users, messageAttributes[2]);
-                var message = new Message(user, messageAttributes[1], likes);
-                messages.Add(message);
-            }
+            var rawMessages = JsonSerializer.Deserialize<List<Message>>(chatText, new JsonSerializerOptions { PropertyNameCaseInsensitive = true, WriteIndented = true});
 
-			// CHAT
-			var mainChat = new Chat(messages.ToArray(), users);
-			return mainChat;
+            // CHAT
+			var mainChat = new Chat(rawMessages.ToArray(), users);
+            return mainChat;
 		}
 
       

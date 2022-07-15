@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace ChatProgramm
 {
@@ -8,23 +9,10 @@ namespace ChatProgramm
         public User[] LoadUsers(string path)
         {
             var userText = File.ReadAllText(path);
-            var rawUsers = userText.Split("</|> USER </|>");
-            var user= new List<User>();
-            foreach (var rawUser in rawUsers)
-            {
-                
-                string[] userAttributes = rawUser.Split("<+>");
-                var u = new User(userAttributes[0], new DateTime(), userAttributes[2]);
-                user.Add(u);
-                
-            }
-            return user.ToArray();
+            var users = JsonSerializer.Deserialize<List<User>>(userText, new JsonSerializerOptions { PropertyNameCaseInsensitive = true, WriteIndented = true });
+            var mmmmmmm = users.ToArray().Count();
+            return users.ToArray();
         }
-
-
-        
-
     }
-   
 }
 
