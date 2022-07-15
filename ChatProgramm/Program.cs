@@ -1,26 +1,33 @@
 ﻿using ChatProgramm;
 using ChatProgramm.Infrastructure;
-
+using System.Text.Json;
+/*
 if (args.Length == 0)
 {
     Console.WriteLine("Invalid arg");
     return;
 }
+*/
+
+
 // infrastructure
 
 var userRepository = new UserRepository();
-var allUsers = userRepository.LoadUsers("/Users/menswear/Projects/ChatProgramm/ChatProgramm/DataBase/Users.txt");
-
 var chatRepository = new ChatRepository();
-var chat = chatRepository.LoadChat("/Users/menswear/Projects/ChatProgramm/ChatProgramm/DataBase/Chat.txt", allUsers);
 
-var likeRepository = new LikeRepository();
 
 
 // domain
 
-var messagesOfFirstUser = chat.GetUserMessages(chat.Users[1]);
-var allMessages = chat.Messages;
+var allUsers = userRepository.LoadUsers("DataBase/Users.json");
+
+var chat = chatRepository.LoadChat("DataBase/Chat.json", allUsers);
+/*
+var messagesOfFirstUser = chat.GetUserMessages(allUsers[3]);
+var newMessage = Create.NewMessage();
+chat.AddNewMessage(newMessage);
+var newLike = Create.NewLike();
+*/
 
 // infrastructure
 
@@ -36,7 +43,7 @@ LikeRepository.AddLike(allUsers, allMessages);
 
 
 // Console Menue
-
+/*
 var command = args[0];
 
 switch (command)
@@ -81,3 +88,4 @@ User FindUserByNickname(User[] users, string nickname)
     }
     return null;
 }
+*/
