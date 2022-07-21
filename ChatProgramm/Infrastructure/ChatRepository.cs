@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text.Json;
 
 namespace ChatProgramm
@@ -8,11 +9,13 @@ namespace ChatProgramm
 		public Chat LoadChat (string path, User[] users)
 		{
 			var chatText = File.ReadAllText(path);
-            var rawMessages = JsonSerializer.Deserialize<List<Message>>(chatText, new JsonSerializerOptions { PropertyNameCaseInsensitive = true, WriteIndented = true});
-
-            // CHAT
-			var mainChat = new Chat(rawMessages.ToArray(), users);
-            return mainChat;
+            var chat = JsonSerializer.Deserialize<Chat>(chatText, new JsonSerializerOptions { PropertyNameCaseInsensitive = true, WriteIndented = true});
+			foreach(var u in users)
+            {
+                chat.Users.Append(users);
+            }
+			
+			return chat;
 		}
     }
 }
