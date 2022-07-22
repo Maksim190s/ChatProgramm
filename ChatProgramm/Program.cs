@@ -15,15 +15,16 @@ var create = new Create();
 
 var allUsers = userRepository.LoadUsers();
 var chat = chatRepository.LoadChat(allUsers);
-var allMessages = chat.Messages;
-
-var newMessage = create.NewMessageByUser(allUsers);
+//var allMessages = chat.Messages;
+var usersFromChat = chat.Users;
+ConsoleUser.DisplayEachUser(usersFromChat);
+//var newMessage = create.NewMessageByUser(allUsers);
 //var newLike = create.NewLikeForMessage(allMessages, allUsers);
 
 
 // infrastructure
-chat.AddNewMessage(newMessage);
+//chat.AddNewMessage(newMessage);
 //chat.AddNewLike(newLike);
 
-Write.Chat("DataBase/Chat.json", chat);
+//Write.Chat("DataBase/Chat.json", chat);
 //Write.Users("DataBase/Users.json", allUsers);
