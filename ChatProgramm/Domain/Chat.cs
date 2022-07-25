@@ -26,8 +26,6 @@ namespace ChatProgramm
             newList.Add(message);
         }
 
-        // Не понял каким образом можно добавить лайк, а именно, за счет чего его можно связать с конкретным сообщением.
-        // Мне показалось, что можно добавить новое свойство Index, которое будет мэтчить Like с сообщением при вводе через консоль.
         public void AddNewLike(Like like)
         {
             for (int i = 0; i < Messages.Length; i++)
