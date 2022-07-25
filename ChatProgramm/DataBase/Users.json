@@ -1,21 +1,27 @@
 ﻿[
   {
-    "UserId": 1,
+    "Id": 1,
     "FullName": "James O",
     "DateOfBirth": "1987-02-01T12:13:13",
     "Nickname": "James"
   },
   {
-    "UserId": 2,
+    "Id": 2,
     "FullName": "Kim M",
     "DateOfBirth": "1986-02-01T12:15:13",
     "Nickname": "Kim"
   },
   {
-    "UserId": 3,
+    "Id": 3,
     "FullName": "Kate N",
     "DateOfBirth": "1986-02-01T12:13:33",
     "Nickname": "Kate"
+  },
+  {
+    "Id": 4,
+    "FullName": "Karl L",
+    "DateOfBirth": "1956-06-02T12:13:33",
+    "Nickname": "KARL"
   }
 ]
 
