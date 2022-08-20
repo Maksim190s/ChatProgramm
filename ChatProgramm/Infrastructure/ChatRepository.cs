@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Text.Json;
+using ChatProgramm.Interface;
 
 namespace ChatProgramm
 {
-	public class ChatRepository
+	public class ChatRepository : IChatRepository
 	{
 		private string _filePath;
 
@@ -12,8 +13,6 @@ namespace ChatProgramm
         {
 			this._filePath = filePath;
         }
-
-        
 
         public Chat LoadChat (User[] allUsers)
 		{
