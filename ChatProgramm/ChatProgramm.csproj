@@ -11,10 +11,12 @@
     <None Remove="Infrastructure\" />
     <None Remove="Domain\" />
     <None Remove="DataBase\" />
+    <None Remove="Interface\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Infrastructure\" />
     <Folder Include="Domain\" />
     <Folder Include="DataBase\" />
+    <Folder Include="Interface\" />
   </ItemGroup>
 </Project>
